@@ -1,0 +1,33 @@
+---
+
+# cluster
+rabbitmq_create_cluster: yes
+rabbitmq_erlang_cookie: WKRBTTEQRYPTQOPUKSVF
+# https://www.rabbitmq.com/configure.html#define-environment-variables
+# When set to true this will cause RabbitMQ to use fully qualified names to identify nodes.
+# This may prove useful on EC2.
+# Note that it is not possible to switch between using short and long names without resetting the node.
+rabbitmq_use_longname: 'true'
+
+# log rotate
+rabbitmq_logrotate_period: weekly
+rabbitmq_logrotate_amount: 20
+
+# https://www.rabbitmq.com/install-debian.html
+# The main setting that needs adjustment is the max number of open files, also known as ulimit -n.
+# The default value on many operating systems is too low for a messaging broker (eg. 1024 on several Linux distributions).
+# We recommend allowing for at least 65536 file descriptors for user rabbitmq in production environments.
+# 4096 should be sufficient for most development workloads
+rabbitmq_ulimit_open_files: 4096
+
+# default ports
+rabbitmq_amqp_port: 5672
+rabbitmq_epmd_port: 4369
+rabbitmq_node_port: 25672
+
+# plugins for HTTP API monitor
+rabbitmq_plugins:
+  - rabbitmq_management
+  - rabbitmq_management_agent
+
+rabbitmq_cluster_master: ip-10-101-50-172.eu-central-1.compute.internal

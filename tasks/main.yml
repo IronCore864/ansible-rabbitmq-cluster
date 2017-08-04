@@ -1,0 +1,17 @@
+---
+
+- include: repository.yml
+
+- include: install.yml
+
+- include: config-cluster.yml
+  when: rabbitmq_create_cluster
+
+- include: config.yml
+
+- include: service.yml
+
+- include: cluster.yml
+  when: (rabbitmq_create_cluster == true) and ( ansible_fqdn != rabbitmq_cluster_master )
+
+- meta: flush_handlers

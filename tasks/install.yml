@@ -1,0 +1,19 @@
+---
+# Install required packages
+
+- name: install rabbitmq-server
+  apt:
+    update_cache: yes
+    force: yes
+    pkg: "{{ item }}"
+    state: present
+  with_items:
+    - rabbitmq-server
+
+- name: customize logrotate rules
+  template:
+    src: etc/logrotate.d/rabbitmq-server.j2
+    dest: /etc/logrotate.d/rabbitmq-server
+    owner: root
+    group: root
+    mode: 0644
