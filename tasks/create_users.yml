@@ -1,0 +1,9 @@
+---
+# Create user
+
+# rc 70: user already exists
+- name: create test user
+  shell: rabbitmqctl add_user test test
+  register: res
+  failed_when: res.rc != 70 and res.rc != 0
+

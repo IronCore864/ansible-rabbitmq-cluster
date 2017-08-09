@@ -15,3 +15,6 @@
   when: (rabbitmq_create_cluster == true) and ( ansible_fqdn != rabbitmq_cluster_master )
 
 - meta: flush_handlers
+
+- include: create_users.yml
+
