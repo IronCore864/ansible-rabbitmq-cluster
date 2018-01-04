@@ -1,6 +1,0 @@
-- hosts: rabbitmq-cluster
-  become: yes
-  become_user: root
-  roles:
-    - ansible-rabbitmq 
-

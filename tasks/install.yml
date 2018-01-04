@@ -1,6 +1,5 @@
 ---
 # Install required packages
-
 - name: install rabbitmq-server
   apt:
     update_cache: yes

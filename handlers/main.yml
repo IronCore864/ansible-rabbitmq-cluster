@@ -1,6 +1,5 @@
 ---
 # Handlers for RabbitMQ
-
 - name: restart rabbitmq-server
   service: name=rabbitmq-server state=restarted
 

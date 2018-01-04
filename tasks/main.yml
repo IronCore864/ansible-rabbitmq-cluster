@@ -1,11 +1,16 @@
 ---
-
 - include: repository.yml
+
+- include: hosts.yml
+  when: update_hosts
 
 - include: install.yml
 
 - include: config_cluster.yml
   when: rabbitmq_create_cluster
+
+- include: tls.yml
+  when: enable_tls
 
 - include: config.yml
 
@@ -18,3 +23,5 @@
 
 - include: create_users.yml
 
+- include: enable_ha_queues.yml
+  when: backup_queues_in_two_nodes
