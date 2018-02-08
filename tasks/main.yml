@@ -1,27 +1,25 @@
 ---
-- include: repository.yml
+- include_tasks: repository.yml
 
-- include: hosts.yml
+- include_tasks: hosts.yml
   when: update_hosts
 
-- include: install.yml
+- include_tasks: install.yml
 
-- include: config_cluster.yml
+- include_tasks: erlang_cookie.yml
   when: rabbitmq_create_cluster
 
-- include: tls.yml
+- include_tasks: tls.yml
   when: enable_tls
 
-- include: config.yml
+- include_tasks: config.yml
 
-- include: service.yml
+- include_tasks: service.yml
 
-- include: join_cluster.yml
+- include_tasks: cluster.yml
   when: (rabbitmq_create_cluster == true) and ( ansible_fqdn != rabbitmq_cluster_master )
 
-- meta: flush_handlers
+- include_tasks: create_users.yml
 
-- include: create_users.yml
-
-- include: enable_ha_queues.yml
+- include_tasks: enable_ha_queues.yml
   when: backup_queues_in_two_nodes

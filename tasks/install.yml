@@ -1,5 +1,27 @@
 ---
-# Install required packages
+- name: install gdebi
+  apt:
+    update_cache: yes
+    force: yes
+    pkg: gdebi
+    state: present
+
+- name: Check if esl-erlang is installed
+  command: dpkg-query -W esl-erlang
+  register: erlang_pkg_check
+  ignore_errors: yes
+  changed_when: false
+
+- name: Download esl-erlang
+  get_url: 
+    url: "{{ erlang_download_url }}"
+    dest: "/root/{{ erlang_pkg_name }}"
+  when: erlang_pkg_check.stdout.find("{{ erlang_version }}") == -1
+
+- name: install esl-erlang
+  command: gdebi -n "/root/{{ erlang_pkg_name }}"
+  when: erlang_pkg_check.stdout.find("{{ erlang_version }}") == -1
+
 - name: install rabbitmq-server
   apt:
     update_cache: yes
