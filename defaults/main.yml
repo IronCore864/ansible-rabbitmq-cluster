@@ -17,7 +17,7 @@
 #
 update_hosts: false
 
-# erlang for ubuntu16
+# erlang
 erlang_version: "1:20.2.2"
 erlang_download_url: "http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_1_general/esl-erlang_20.2.2-1~ubuntu~xenial_amd64.deb"
 erlang_pkg_name: "esl-erlang_20.2.2-1~ubuntu~xenial_amd64.deb"
@@ -57,7 +57,6 @@ rabbitmq_plugins:
 
 # TLS/SSL support
 enable_tls: false
-
 # if true, only tls is supported which means amqp default port 5672 is not open anymore
 tls_only: false
 

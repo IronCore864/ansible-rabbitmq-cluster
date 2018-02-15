@@ -1,9 +1,9 @@
 ---
 - name: stop rabbitmq app
-  shell: rabbitmqctl stop_app
+  command: rabbitmqctl stop_app
 
 - name: add this node to cluster
-  shell: rabbitmqctl join_cluster rabbit@{{ rabbitmq_cluster_master }}
+  command: rabbitmqctl join_cluster rabbit@{{ rabbitmq_cluster_master }}
 
 - name: start rabbitmq app
-  shell: rabbitmqctl start_app
+  command: rabbitmqctl start_app

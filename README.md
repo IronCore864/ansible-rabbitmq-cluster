@@ -13,20 +13,16 @@ Table of Content:
 
 # Ansible Role: RabbitMQ Cluster
 
-An Ansible Role, that installs a RabbitMQ multi-node cluster, for ubuntu/debian specifically.
-
-CentOS not supported yet because I haven't done the changes regarding differences of erlang install.
+An Ansible Role, that installs a RabbitMQ multi-node cluster.
 
 This project is inspired by `alexey-medvedchikov/ansible-rabbitmq`.
 
 Major changes and differences:
 
-- TLS/SSL support
-- disable TCP to use TLS only to be more secure
-- latest erlang install for ubuntu
+- TLS/SSL
 - high availability queues
-- simpler template and config
-- more comments and more readable code
+- Simple template and config
+- More comments and more readable code
 
 # Requirements
 
@@ -61,18 +57,6 @@ example:
       10.0.0.10 eu-central-1-mq-master   (whatever the command `hostname -f` outputs on this host)
       10.0.0.11 eu-central-1-mq-slave-01 (whatever the command `hostname -f` outputs on this host)
 .
-
-    erlang_version
-
-Version of erlang to be installed. Default 1:20.2.2
-
-    erlang_download_url
-
-Where to get erlang. Default "http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_1_general/esl-erlang_20.2.2-1~ubuntu~xenial_amd64.deb"
-
-    erlang_pkg_name
-
-Erlang package name. Default "esl-erlang_20.2.2-1~ubuntu~xenial_amd64.deb"
 
     rabbitmq_create_cluster: yes
 

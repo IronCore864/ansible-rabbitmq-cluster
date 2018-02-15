@@ -1,5 +1,8 @@
 [
   {rabbit, [
+{% if tls_only %}
+    {tcp_listeners, []},
+{% endif %}
 {% if enable_tls %}
     {ssl_listeners, [{{ rabbitmq_tls_port }}]},
     {ssl_options, [{cacertfile,"{{ cacertfile_dest }}"},
