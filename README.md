@@ -17,6 +17,10 @@ An Ansible Role, that installs a RabbitMQ multi-node cluster.
 
 This project is inspired by `alexey-medvedchikov/ansible-rabbitmq`.
 
+**It supports Debian/Ubuntu only.**
+
+Note from 2020.12.31: this project is from 3 years ago and I did not maintain/update on a regular basis. For more recent version which works out of the box, please search for other projects. Thanks.
+
 Major changes and differences:
 
 - TLS/SSL
