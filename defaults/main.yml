@@ -18,9 +18,9 @@
 update_hosts: false
 
 # erlang
-erlang_version: "1:20.2.2"
-erlang_download_url: "http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_1_general/esl-erlang_20.2.2-1~ubuntu~xenial_amd64.deb"
-erlang_pkg_name: "esl-erlang_20.2.2-1~ubuntu~xenial_amd64.deb"
+erlang_version: "1:21.3.8.14"
+erlang_download_url: "https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_21.3.8.14-1~ubuntu~xenial_amd64.deb"
+erlang_pkg_name: "esl-erlang_21.3.8.14-1~ubuntu~xenial_amd64.deb"
 
 # cluster
 rabbitmq_create_cluster: yes
